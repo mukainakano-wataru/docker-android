@@ -21,7 +21,8 @@ RUN \
   cd /usr/local && \
   curl -L -O "https://dl.google.com/android/android-sdk_$ANDROID_SDK_REVISION-linux.tgz" && \
   tar -xf "android-sdk_$ANDROID_SDK_REVISION-linux.tgz" && \
-  rm "/usr/local/android-sdk_$ANDROID_SDK_REVISION-linux.tgz"
+  rm "/usr/local/android-sdk_$ANDROID_SDK_REVISION-linux.tgz" && \
+  chown -R root:root /usr/local
 RUN apt-get install -y lib32z1 lib32gcc1
 
 ENV ANDROID_HOME /usr/local/android-sdk-linux
