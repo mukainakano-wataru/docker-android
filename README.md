@@ -9,6 +9,7 @@ Ubuntu 16.04
 - OpenJDK 8
 - Android SDK r24.4.1
 - Ruby 2.3
+- Golang 1.8.3
 
 # Development
 
