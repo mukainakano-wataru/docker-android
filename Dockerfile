@@ -40,4 +40,12 @@ RUN add-apt-repository -y ppa:brightbox/ruby-ng && apt-get update && apt-get ins
 RUN gem install bundler -v 1.12 --no-ri --no-rdoc
 
 # Go installation
-RUN apt-get install -y golang
+ENV GO_VERSION 1.8.3
+RUN \
+  cd /usr/local && \
+  curl -L -O "https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz" && \
+  tar -xzf go$GO_VERSION.linux-amd64.tar.gz && \
+  rm "/usr/local/go$GO_VERSION.linux-amd64.tar.gz" && \
+  chown -R root:root /usr/local/go
+ENV GO_HOME /usr/local/go
+ENV PATH $PATH:$PATH:$GO_HOME/bin
